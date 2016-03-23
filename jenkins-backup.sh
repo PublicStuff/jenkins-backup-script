@@ -23,11 +23,13 @@ if [[ -f "$TMP_DIR/$TMP_TAR_NAME" ]]; then
     rm "$TMP_DIR/$TMP_TAR_NAME"
 fi
 rm -rf "$ARC_DIR"
-mkdir -p "$ARC_DIR/"{plugins,jobs,users}
+mkdir -p "$ARC_DIR/"{plugins,jobs,users,nodes}
 
 cp "$JENKINS_HOME/"*.xml "$ARC_DIR"
 cp "$JENKINS_HOME/plugins/"*.jpi "$ARC_DIR/plugins"
 cp -R "$JENKINS_HOME/users/"* "$ARC_DIR/users"
+cp -R "$JENKINS_HOME/nodes/"* "$ARC_DIR/nodes"
+
 
 cd "$JENKINS_HOME/jobs/"
 ls -1 | while read job_name
